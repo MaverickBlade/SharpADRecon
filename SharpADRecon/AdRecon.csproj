@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8a2c5f21-3e4d-4b8a-9c61-d2e0f1a3b7c9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AdRecon</RootNamespace>
+    <AssemblyName>AdRecon</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>5</LangVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <Deterministic>true</Deterministic>
+    <StartupObject>AdRecon.Program</StartupObject>
+    <PathMap>$(MSBuildProjectDirectory)=C:\src\adrecon</PathMap>
+    <Company></Company>
+    <Product></Product>
+    <Copyright></Copyright>
+    <Description></Description>
+    <Version>0.0.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Program.cs" />
+    <Compile Include="src\Ad\AdAttrs.cs" />
+    <Compile Include="src\Ad\AdSession.cs" />
+    <Compile Include="src\Ad\DomainForest.cs" />
+    <Compile Include="src\Core\AdReconConfig.cs" />
+    <Compile Include="src\Core\AdReconEnums.cs" />
+    <Compile Include="src\Core\Log.cs" />
+    <Compile Include="src\Core\Models.cs" />
+    <Compile Include="src\Export\AdExporter.cs" />
+    <Compile Include="src\Export\Exporters.cs" />
+    <Compile Include="src\Modules\AboutModule.cs" />
+    <Compile Include="src\Modules\DnsModule.cs" />
+    <Compile Include="src\Modules\DomainControllerModule.cs" />
+    <Compile Include="src\Modules\DomainModule.cs" />
+    <Compile Include="src\Modules\ForestModule.cs" />
+    <Compile Include="src\Modules\GroupComputerModules.cs" />
+    <Compile Include="src\Modules\MetadataModules.cs" />
+    <Compile Include="src\Modules\ModuleRegistry.cs" />
+    <Compile Include="src\Modules\ModuleRunner.cs" />
+    <Compile Include="src\Modules\OrgModules.cs" />
+    <Compile Include="src\Modules\SecurityModules.cs" />
+    <Compile Include="src\Modules\UserModule.cs" />
+    <Compile Include="src\Report\IReportGenerator.cs" />
+    <Compile Include="src\Report\OpenXmlReportGenerator.cs" />
+    <Compile Include="src\Report\HtmlReportGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="src\Report\lib\jquery.min.js">
+      <LogicalName>AdRecon.lib.jquery.min.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Report\lib\chart.min.js">
+      <LogicalName>AdRecon.lib.chart.min.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Report\lib\datatables.min.js">
+      <LogicalName>AdRecon.lib.datatables.min.js</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Report\lib\datatables.min.css">
+      <LogicalName>AdRecon.lib.datatables.min.css</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
